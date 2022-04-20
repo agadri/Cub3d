@@ -21,6 +21,7 @@ int	get_texture(t_data *data, char *path, t_img *img)
 	int	i;
 
 	i = 0;
+	(void)data;
 	if (img->status == 1)
 		return (2);
 	while (path[i])
@@ -33,11 +34,11 @@ int	get_texture(t_data *data, char *path, t_img *img)
 		i++;
 	}
 	//img->img = mlx_xpm_file_to_image(data->mlx, path, &img->width, &img->height);
-	if (!img->img)
-		exit_opt(data, "error texture\n");
+	//if (!img->img)
+		//exit_opt(data, "error texture\n");
 	//img->addr = mlx_get_data_addr(img->img, &img->bpp, &img->line, &img->endian);
-	if (!img->addr)
-		exit_opt(data, "error texture\n");
+	//if (!img->addr)
+		//exit_opt(data, "error texture\n");
 	img->status = 1;
 	//data->total_arg++;
 	return (1);
@@ -59,7 +60,7 @@ int	get_opt(t_data *data, char *line, int res)
 		res = get_texture(data, tmp[1], &data->west);
 	else if (!ft_strncmp(tmp[0], "EA", 3))
 		res = get_texture(data, tmp[1], &data->east);
-	else if (!ft_strncmp(tmp[0], "F", 2))
+	//else if (!ft_strncmp(tmp[0], "F", 2))
 		//res = take_rgb(&data->floor, tmp[1], data);
 	if (res == 2)
 	{

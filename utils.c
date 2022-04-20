@@ -16,3 +16,17 @@ int	ft_isspace(char c)
 {
 	return (c == 32 || (c >= 9 && c <= 13));
 }
+
+char	*ft_strmalloc(const char *s)
+{
+	int			len;
+	char		*s2;
+
+	len = 0;
+	while (s[len])
+		len++;
+	s2 = malloc(sizeof(char) * (len + 1));
+	if (s2 == NULL)
+		return (NULL);
+	return (s2);
+}
