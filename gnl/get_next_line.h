@@ -6,7 +6,7 @@
 /*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 13:49:59 by adegadri          #+#    #+#             */
-/*   Updated: 2022/04/19 13:41:50 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/03 19:25:55 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ char	*ft_strjoin(char *s1, char *s2);
 int		ft_end(char *str);
 char	*ft_resave(char *save);
 int		get_next_line(int fd, char **line);
+void	*ft_memset(void *b, int c, unsigned int len);
 
 #endif

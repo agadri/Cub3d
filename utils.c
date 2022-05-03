@@ -2,7 +2,7 @@
 
 int ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i;
+	unsigned int	i;
 
 	i = 0;
 	if (n == 0)
@@ -29,4 +29,18 @@ char	*ft_strmalloc(const char *s)
 	if (s2 == NULL)
 		return (NULL);
 	return (s2);
+}
+
+void	*ft_memset(void *b, int c, unsigned int len)
+{
+	char	*str;
+
+	str = b;
+	while (len)
+	{
+		*str = (unsigned char)c;
+		str++;
+		len--;
+	}
+	return (b);
 }

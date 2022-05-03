@@ -6,7 +6,7 @@
 /*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 13:24:53 by adegadri          #+#    #+#             */
-/*   Updated: 2022/04/20 16:41:47 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/03 21:37:33 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,28 @@ void	get_map(t_data *data, char **av)
 int	main(int ac, char **av)
 {
 	t_data	data;
+	//int	i = 0;
 
 	if (ac != 2)
 		return (0);
+	data.map = NULL;
+	data.map3 = NULL;
 	get_map(&data, av);
+	data.width = size_width(&data);
+	data.lenght = size_lenght(&data);
 	change_space_to_3(&data);
-	int i = 0;
-	printf("return -> %d\n", check_if_is_close(&data));
-	while (data.map3[i])
+	//int i = 0;
+	/*while (i <= data.lenght - 1)
 	{
-		printf("line1 : %s\n", data.map3[i]);
+		printf("line1 %d: %s\n", i,data.map3[i]);
 		i++;
+	}*/
+	if (!check_if_is_close(&data))
+	{
+		printf("Map not close\n");
+		return (0);
 	}
-	//printf("line1 : %s\n", data.map3[i]);
+
+
+	//printf("line1 : %s\n", data.map3[i]);*/
 }

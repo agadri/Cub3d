@@ -27,6 +27,8 @@ typedef struct s_data
 	int		fd;
 	char	**map;
 	char	**map3;
+	int		width;
+	int		lenght;
 	t_img	north;
 	t_img	south;
 	t_img	west;
@@ -41,6 +43,10 @@ int		ft_strncmp(char *s1, char *s2, unsigned int n);
 int		ft_isspace(char c);
 char	*ft_strmalloc(const char *s);
 int		get_opt(t_data *data, char *line, int res);
-
+int		ft_strlen(char *str);
+int		size_width(t_data *data);
+int		size_lenght(t_data *data);
+char	*ft_str3dup(char *s, t_data *data);
+void	*ft_memset(void *b, int c, unsigned int len);
 
 #endif
