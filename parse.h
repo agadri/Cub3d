@@ -8,6 +8,22 @@
 #include <errno.h>
 #include <string.h>
 
+# include "mlx/mlx.h"
+
+# define NO 0
+# define SO 1
+# define WE 2
+# define EA 3
+
+# define ESC	65307
+
+# define WIN_WIDTH	1920
+# define WIN_HEIGHT	1000
+
+# define WALL1 "./xpm/sand_floor.xpm"
+# define WALL2 "./xpm/sand.xpm"
+# define WALL3 "./xpm/stone_wall.xpm"
+# define WALL4 "./xpm/stone.xpm"
 
 typedef struct s_img
 {
@@ -23,6 +39,10 @@ typedef struct s_img
 
 typedef struct s_data
 {
+	void	*mlx;
+	void	*win;
+	void	*img;
+
 	char	*line;
 	int		fd;
 	char	**map;
@@ -33,20 +53,32 @@ typedef struct s_data
 	t_img	south;
 	t_img	west;
 	t_img	east;
+	int		exit;
 }	t_data;
 
 # include "gnl/get_next_line.h"
 # include "check/check.h"
+# include "init/init_all.h"
+# include "move/move.h"
+# include "draw/draw.h"
 
 char	**ft_split(char const *s, char c);
 int		ft_strncmp(char *s1, char *s2, unsigned int n);
 int		ft_isspace(char c);
 char	*ft_strmalloc(const char *s);
 int		get_opt(t_data *data, char *line, int res);
+<<<<<<< HEAD
+void	exit_opt(t_data *data, char *msg);
+=======
+>>>>>>> 3bfef27084fba61b45a7df4d074dc7515720feed
 int		ft_strlen(char *str);
 int		size_width(t_data *data);
 int		size_lenght(t_data *data);
 char	*ft_str3dup(char *s, t_data *data);
 void	*ft_memset(void *b, int c, unsigned int len);
+<<<<<<< HEAD
+int		get_map(t_data *data, char **av);
+=======
+>>>>>>> 3bfef27084fba61b45a7df4d074dc7515720feed
 
 #endif

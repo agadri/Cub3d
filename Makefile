@@ -2,8 +2,18 @@ NAME = parse
 
 SRCS = 	gnl/get_next_line_utils.c \
 		gnl/get_next_line.c \
+		init/init_mlx.c \
 		check/check_if_close.c \
+<<<<<<< HEAD
+		check/check_map.c \
 		check/check_utils.c \
+		check/check_name.c \
+		check/check_all.c \
+		draw/draw.c \
+		move/move_all.c \
+=======
+		check/check_utils.c \
+>>>>>>> 3bfef27084fba61b45a7df4d074dc7515720feed
 		catch_size.c \
 		ft_split.c \
 		utils.c \
@@ -12,21 +22,25 @@ SRCS = 	gnl/get_next_line_utils.c \
 				
 OBJS 		= 	${SRCS:.c=.o}
 
+PATH_MLX	=	./mlx
 CC 			= 	gcc
 CFLAGS		= 	-Wall -Wextra -Werror -g3 #-fsanitize=address
 RM			= 	rm -f
 NAME		= 	parse
+FLAGS		=	-ldl -Imlx -Lmlx -lmlx -lm -lXext -lX11
 
 all: 			${NAME}
 
 .c.o:
-				${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+				${CC} ${CFLAGS} -Imlx -Ibass -c $< -o ${<:.c=.o}
 
 $(NAME): 		$(OBJS)
-				${CC} $(CFLAGS) $(OBJS) -o $(NAME)
+				@make -C $(PATH_MLX)
+				${CC} $(CFLAGS) $(OBJS) $(FLAGS) -o $(NAME)
 
 
 clean:
+				make -C $(PATH_MLX) clean
 				${RM} ${OBJS}
 
 fclean: 		clean

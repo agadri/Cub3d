@@ -1,8 +1,8 @@
 
-NO ./xpm/wall_1.xpm
-SO ./xpm/wall_2.xpm
-WE ./xpm/wall_3.xpm
-EA ./xpm/wall_4.xpm
+NO xpm/sand_floor.xpm
+SO xpm/sand.xpm
+WE xpm/stone_wall.xpm
+EA xpm/stone.xpm
 
 111111
 100001

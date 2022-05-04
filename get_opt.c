@@ -5,13 +5,14 @@ void	exit_opt(t_data *data, char *msg)
 	printf("Error\n%s\n", msg);
 	if (data->line != NULL)
 		free(data->line);
-	//if (data->mlx != NULL)
-	//{
+	if (data->mlx != NULL)
+	{
 		//free_img(data);
-		//mlx_destroy_display(data->mlx);
-		//free(data->mlx);
-	//}
-	//if (data->map != NULL)
+		mlx_destroy_display(data->mlx);
+		free(data->mlx);
+	}
+	if (data->map != NULL)
+		return ;
 		//ft_free_tab(data->map);
 	exit(1);
 }
@@ -33,12 +34,18 @@ int	get_texture(t_data *data, char *path, t_img *img)
 		}
 		i++;
 	}
-	//img->img = mlx_xpm_file_to_image(data->mlx, path, &img->width, &img->height);
-	//if (!img->img)
-		//exit_opt(data, "error texture\n");
-	//img->addr = mlx_get_data_addr(img->img, &img->bpp, &img->line, &img->endian);
-	//if (!img->addr)
-		//exit_opt(data, "error texture\n");
+	printf("->%s\n", path);
+	//probleme la img->img existant mais quitte juste apres  
+	img->img = mlx_xpm_file_to_image(data->mlx, path, &img->width, &img->height);
+	if (!img->img)
+	{
+		printf("v\n");
+		exit_opt(data, "1error texture\n");
+	}
+	printf("V2\n");
+	img->addr = mlx_get_data_addr(img->img, &img->bpp, &img->line, &img->endian);
+	if (!img->addr)
+		exit_opt(data, "2error texture\n");
 	img->status = 1;
 	//data->total_arg++;
 	return (1);
@@ -50,6 +57,7 @@ int	get_opt(t_data *data, char *line, int res)
 
 	tmp = NULL;
 	tmp = ft_split(line, ' ');
+
 	if (!tmp)
 		exit_opt(data, "Malloc failed");
 	if (!ft_strncmp(tmp[0], "NO", 3))

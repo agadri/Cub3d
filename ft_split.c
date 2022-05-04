@@ -6,7 +6,11 @@
 /*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 21:17:34 by adegadri          #+#    #+#             */
+<<<<<<< HEAD
+/*   Updated: 2022/05/04 13:07:24 by adegadri         ###   ########.fr       */
+=======
 /*   Updated: 2022/05/03 21:17:37 by adegadri         ###   ########.fr       */
+>>>>>>> 3bfef27084fba61b45a7df4d074dc7515720feed
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +93,8 @@ char	**ft_split(char const *s, char c)
 		return (0);
 	countword = count_word(s, c);
 	tab = (char **)malloc(sizeof(char *) * (countword + 1));
+	if (!tab)
+		return (NULL);
 	ft_do_split(tab, countword, s, c);
 	return (tab);
 }
