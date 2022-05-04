@@ -14,6 +14,7 @@ SRCS = 	gnl/get_next_line_utils.c \
 		ft_split.c \
 		utils.c \
 		get_opt.c \
+		exit/free_map.c \
 		main.c
 				
 OBJS 		= 	${SRCS:.c=.o}

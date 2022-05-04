@@ -6,7 +6,7 @@
 /*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 13:24:53 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/04 19:29:45 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/04 19:52:08 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,9 @@ int	main(int ac, char **av)
 	//mlx_hook(data.win, 33, 131072, &ft_free, &data);
 	mlx_do_sync(data.mlx);
 	mlx_loop(data.mlx);//la boucle qui maintiens la window
+	free_map(data.map);
+	free_map(data.map3);
+
 	return (1);
 }
 //a faire : la fenetre apparait mais disparait directement apres img->imgest cree donc je capte pas le probleme , d'ou proviens le segv

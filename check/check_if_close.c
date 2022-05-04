@@ -6,7 +6,7 @@
 /*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 15:16:24 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/04 19:35:03 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/04 19:54:28 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,12 @@ char	*ft_str3dup(char *s, t_data *data)
 	i = 0;
 	while (i <= data->width - 1)//print la map sur les 3
 	{
-		if (!s[i])
-			s2[i] = '3';
-		else if (s[i])
+		if (s[i])
 			s2[i] = s[i];
+		else if (!s[i])
+			s2[i] = '3';
 		i++;
 	}
-	//printf("check%s\n", s);
 	s2[i] = '\0';
 	return (s2);//ta la map avec en fond des 3
 }

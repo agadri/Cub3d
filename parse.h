@@ -62,6 +62,7 @@ typedef struct s_data
 # include "init/init_all.h"
 # include "move/move.h"
 # include "draw/draw.h"
+# include "exit/free.h"
 
 char	**ft_split(char const *s, char c);
 int		ft_strncmp(char *s1, char *s2, unsigned int n);
