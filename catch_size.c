@@ -6,13 +6,13 @@
 /*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 15:16:36 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/03 21:31:52 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/04 19:31:53 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-int	size_width(t_data *data)
+int	size_width(t_data *data)//ligne la plus grande de la map
 {
 	int	i;
 	int	width1;
@@ -34,7 +34,7 @@ int	size_width(t_data *data)
 	return (width1);
 }
 
-int	size_lenght(t_data *data)
+int	size_lenght(t_data *data)//longueur de la map
 {
 	int	i;
 

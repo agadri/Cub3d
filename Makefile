@@ -4,16 +4,12 @@ SRCS = 	gnl/get_next_line_utils.c \
 		gnl/get_next_line.c \
 		init/init_mlx.c \
 		check/check_if_close.c \
-<<<<<<< HEAD
 		check/check_map.c \
 		check/check_utils.c \
 		check/check_name.c \
 		check/check_all.c \
 		draw/draw.c \
 		move/move_all.c \
-=======
-		check/check_utils.c \
->>>>>>> 3bfef27084fba61b45a7df4d074dc7515720feed
 		catch_size.c \
 		ft_split.c \
 		utils.c \

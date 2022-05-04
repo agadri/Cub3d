@@ -9,7 +9,6 @@
 
 
 void	change_space_to_3(t_data *data);
-<<<<<<< HEAD
 int		check_line_close(t_data *data, int line);
 int		check_if_is_close(t_data *data);
 int		nothing_in_line(char *str);
@@ -17,10 +16,5 @@ int		ft_check_name_map(char *s1);
 int		check_file(char *name_map);
 int		check_fd(char *name_map);
 int		check_all(int ac, char **av, t_data *data);
-=======
-int	check_line_close(t_data *data, int line);
-int	check_if_is_close(t_data *data);
-int nothing_in_line(char *str);
->>>>>>> 3bfef27084fba61b45a7df4d074dc7515720feed
 
 #endif

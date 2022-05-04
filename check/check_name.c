@@ -6,13 +6,13 @@
 /*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 13:16:26 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/04 13:16:28 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/04 19:35:51 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "check.h"
 
-int	ft_check_name_map(char *s1)
+int	ft_check_name_map(char *s1)//que . cub
 {
 	int		i;
 	char	*s2;
@@ -28,7 +28,7 @@ int	ft_check_name_map(char *s1)
 	return (1);
 }
 
-int	check_file(char *name_map)
+int	check_file(char *name_map)// si dossier ?
 {
 	int	tmp;
 
@@ -41,7 +41,7 @@ int	check_file(char *name_map)
 	return (1);
 }
 
-int	check_fd(char *name_map)
+int	check_fd(char *name_map)// si fd ok ?
 {
 	int	fd;
 

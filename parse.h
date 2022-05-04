@@ -2,6 +2,7 @@
 # define PARSE_H
 
 # include <stdio.h>
+#include <stdlib.h>
 # include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -67,18 +68,13 @@ int		ft_strncmp(char *s1, char *s2, unsigned int n);
 int		ft_isspace(char c);
 char	*ft_strmalloc(const char *s);
 int		get_opt(t_data *data, char *line, int res);
-<<<<<<< HEAD
 void	exit_opt(t_data *data, char *msg);
-=======
->>>>>>> 3bfef27084fba61b45a7df4d074dc7515720feed
 int		ft_strlen(char *str);
 int		size_width(t_data *data);
 int		size_lenght(t_data *data);
 char	*ft_str3dup(char *s, t_data *data);
 void	*ft_memset(void *b, int c, unsigned int len);
-<<<<<<< HEAD
 int		get_map(t_data *data, char **av);
-=======
->>>>>>> 3bfef27084fba61b45a7df4d074dc7515720feed
+char	*ft_strdup(char *src);
 
 #endif

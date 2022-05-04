@@ -6,13 +6,13 @@
 /*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 12:50:37 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/04 12:50:42 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/04 19:35:28 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "check.h"
 
-int	check_letter(char *str)
+int	check_letter(char *str)// check si il n'y que les bon char
 {
 	int	i;
 

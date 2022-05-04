@@ -6,11 +6,7 @@
 /*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 13:24:53 by adegadri          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2022/05/04 17:55:27 by adegadri         ###   ########.fr       */
-=======
-/*   Updated: 2022/05/03 21:37:33 by adegadri         ###   ########.fr       */
->>>>>>> 3bfef27084fba61b45a7df4d074dc7515720feed
+/*   Updated: 2022/05/04 19:29:45 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,35 +22,34 @@ int	x(t_data *data)
 	return (0);
 }
 
-int	get_map(t_data *data, char **av)
+int	get_map(t_data *data, char **av)//obtenir la map
 {
 	int		res;
 	char	*tmp;
 
 	tmp = NULL;
 	res = 0;
-	init_data(data);
-	data->mlx = mlx_init();
+	init_data(data);// j'init ma structure etc
 	init_win(data);
 	init_data(data);
 	init_img(data);
-	data->fd = check_fd(av[1]);
-	data->line = strdup("");//mettre ft_strdup
+	data->fd = check_fd(av[1]);//prend le fd en le checkant
+	data->line = ft_strdup("");//init line
 	if (!data->line)
 		return (0);
-	while (get_next_line(data->fd, &tmp) == 1 && res != -1)
+	while (get_next_line(data->fd, &tmp) == 1 && res != -1)// prend la map avec gnl
 	{
-		tmp = ft_strjoin(tmp, "\n");
-		res = get_opt(data, tmp, 0);
+		tmp = ft_strjoin(tmp, "\n");//ligne par ligne 
+		res = get_opt(data, tmp, 0);// quand c'est pas une option copie pas
 		if (res != 1)
 			data->line = ft_strjoin(data->line, tmp);
 	}
 	free(tmp);
 	close(data->fd);
-	data->map = ft_split(data->line, '\n');
+	data->map = ft_split(data->line, '\n');// toute la ligne joint donc split
 	if (!data->map)
 		return (0);
-	return (1);
+	return (1);//on a la map 
 }
 
 int	loop_raycast(t_data *data)
@@ -66,40 +61,17 @@ int	loop_raycast(t_data *data)
 
 int	main(int ac, char **av)
 {
-	t_data	data;
-	//int	i = 0;
+	t_data	data;//j'init
 
-	if (!check_all(ac, av, &data))
-		return (0);
-<<<<<<< HEAD
-	mlx_loop_hook(data.mlx, loop_raycast, &data);
-	mlx_hook(data.win, 33, 131072, &x, &data);
-	//mlx_hook(data.win, 2, 1L << 0, key_press, &data);
+	data.mlx = NULL;
+	data.mlx = mlx_init();
+	if (!check_all(ac, av, &data))// je check la map
+		return (0);// sinon pas bon tchao
+	mlx_loop_hook(data.mlx, loop_raycast, &data);//pour agir sur la window
+	//mlx_hook(data.win, 2, 1L << 0, key_press, &data);//quand t'appuie sur une touche
 	//mlx_hook(data.win, 33, 131072, &ft_free, &data);
 	mlx_do_sync(data.mlx);
-	mlx_loop(data.mlx);
+	mlx_loop(data.mlx);//la boucle qui maintiens la window
 	return (1);
-=======
-	data.map = NULL;
-	data.map3 = NULL;
-	get_map(&data, av);
-	data.width = size_width(&data);
-	data.lenght = size_lenght(&data);
-	change_space_to_3(&data);
-	//int i = 0;
-	/*while (i <= data.lenght - 1)
-	{
-		printf("line1 %d: %s\n", i,data.map3[i]);
-		i++;
-	}*/
-	if (!check_if_is_close(&data))
-	{
-		printf("Map not close\n");
-		return (0);
-	}
-
-
-	//printf("line1 : %s\n", data.map3[i]);*/
->>>>>>> 3bfef27084fba61b45a7df4d074dc7515720feed
 }
 //a faire : la fenetre apparait mais disparait directement apres img->imgest cree donc je capte pas le probleme , d'ou proviens le segv
