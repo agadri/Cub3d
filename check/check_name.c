@@ -6,7 +6,7 @@
 /*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 13:16:26 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/04 19:35:51 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/05 17:39:14 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	check_file(char *name_map)// si dossier ?
 	if (tmp != -1)
 	{
 		printf("%s\n", "Error \n Problem of file");
+		close (tmp);
 		return (0);
 	}
 	return (1);

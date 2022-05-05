@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_if_close.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 15:16:24 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/05 16:26:21 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/05 17:36:47 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ void	change_space_to_3(t_data *data)
 		return ;
 	while (data->map[data->lenght])
 		data->lenght++;
-	printf("len  === %d\n", data->lenght);
 	data->map3 = malloc(sizeof(char *) * data->lenght + 1);
 	if (!data->map3)
 		return ;
@@ -96,7 +95,7 @@ int	check_if_is_close(t_data *data)
 			(data->map3[i + 1][j] && data->map3[i + 1][j] == '3') || \
 			(data->map3[i - 1][j] && data->map3[i - 1][j] == '3')))
 			{
-				printf("c=%c x:%d y:%d", data->map3[i][j],i ,j);
+				printf("%s\n", "Error \n map not close\n");
 				return (0);
 			}
 			j++;

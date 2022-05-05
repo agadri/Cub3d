@@ -16,5 +16,7 @@ int		ft_check_name_map(char *s1);
 int		check_file(char *name_map);
 int		check_fd(char *name_map);
 int		check_all(int ac, char **av, t_data *data);
+int		check_letter(t_data *data);
+int		check_duplicate_position(t_data *data);
 
 #endif

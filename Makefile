@@ -1,4 +1,7 @@
-NAME = parse
+
+# //RGB
+# //line vide a gerer
+NAME = cub3D
 
 SRCS = 	gnl/get_next_line_utils.c \
 		gnl/get_next_line.c \
@@ -21,7 +24,7 @@ OBJS 		= 	${SRCS:.c=.o}
 
 PATH_MLX	=	./mlx
 CC 			= 	gcc
-CFLAGS		= 	-Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS		= 	-Wall -Wextra -Werror #-g3 -fsanitize=address#
 RM			= 	rm -f
 NAME		= 	parse
 FLAGS		=	-ldl -Imlx -Lmlx -lmlx -lm -lXext -lX11

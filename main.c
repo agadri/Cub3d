@@ -6,7 +6,7 @@
 /*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 13:24:53 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/04 19:52:08 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/05 19:12:15 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,11 @@ int	get_map(t_data *data, char **av)//obtenir la map
 	data->map = ft_split(data->line, '\n');// toute la ligne joint donc split
 	if (!data->map)
 		return (0);
+	data->width = size_width(data);
+	data->lenght = size_lenght(data);
+	if (!check_letter(data) || \
+	!check_duplicate_position(data))
+		return (0);
 	return (1);//on a la map 
 }
 
@@ -65,8 +70,11 @@ int	main(int ac, char **av)
 
 	data.mlx = NULL;
 	data.mlx = mlx_init();
+	data.map = NULL;
+	data.map3 = NULL;
 	if (!check_all(ac, av, &data))// je check la map
 		return (0);// sinon pas bon tchao
+
 	mlx_loop_hook(data.mlx, loop_raycast, &data);//pour agir sur la window
 	//mlx_hook(data.win, 2, 1L << 0, key_press, &data);//quand t'appuie sur une touche
 	//mlx_hook(data.win, 33, 131072, &ft_free, &data);
