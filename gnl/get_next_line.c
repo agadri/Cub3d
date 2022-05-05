@@ -6,10 +6,11 @@
 /*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 17:56:28 by adegadri          #+#    #+#             */
-/*   Updated: 2022/04/19 13:38:14 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/05 20:19:27 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "get_next_line.h"
 
 char	*ft_save(char *save)
@@ -96,8 +97,10 @@ int	get_next_line(int fd, char **line)
 			save = 0;
 			return (0);
 		}
+		//printf("--%s", save);
 		save = ft_strjoin(save, buffer);
 	}
+	//printf("\n");
 	if (ft_end(save) == 1)
 		*line = ft_save(save);
 	save = ft_resave(save);

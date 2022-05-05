@@ -6,7 +6,7 @@
 /*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 13:24:53 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/05 19:12:15 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/05 20:42:47 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	get_map(t_data *data, char **av)//obtenir la map
 		return (0);
 	while (get_next_line(data->fd, &tmp) == 1 && res != -1)// prend la map avec gnl
 	{
-		tmp = ft_strjoin(tmp, "\n");//ligne par ligne 
+		tmp = ft_strjoin(tmp, " \n");//ligne par ligne 
 		res = get_opt(data, tmp, 0);// quand c'est pas une option copie pas
 		if (res != 1)
 			data->line = ft_strjoin(data->line, tmp);
