@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_if_close.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 15:16:24 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/04 19:54:28 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/05 16:26:21 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,20 @@ char	*ft_str3dup(char *s, t_data *data)
 	{
 		s2[i] = '3';
 		i++;
+		
 	}
+	s2[i] = '\0';
 	i = 0;
 	while (i <= data->width - 1)//print la map sur les 3
 	{
-		if (s[i])
+		if (s[i] && s[i] != ' ')
 			s2[i] = s[i];
-		else if (!s[i])
+		else if (s[i] == ' ')
 			s2[i] = '3';
+		else
+			return (s2);
 		i++;
 	}
-	s2[i] = '\0';
 	return (s2);//ta la map avec en fond des 3
 }
 
@@ -63,11 +66,12 @@ void	change_space_to_3(t_data *data)
 		return ;
 	while (data->map[data->lenght])
 		data->lenght++;
+	printf("len  === %d\n", data->lenght);
 	data->map3 = malloc(sizeof(char *) * data->lenght + 1);
 	if (!data->map3)
 		return ;
 	i = 0;
-	while (i <= data->lenght - 1)
+	while (i < data->lenght)
 	{
 		data->map3[i] = ft_str3dup(data->map[i], data);
 		printf("1 i = %d |%s|\n",i, data->map3[i]);
