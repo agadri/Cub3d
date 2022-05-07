@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_opt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 19:18:40 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/06 18:22:12 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/04 19:31:19 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,7 @@ int	get_opt(t_data *data, char *line, int res)
 	if (res == 2)
 	{
 		free(line);
-		free_tab(tmp);
 		exit_opt(data, "Already load");
 	}
-	free_tab(tmp);
 	return (res);
 }

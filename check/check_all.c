@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_all.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 17:17:35 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/06 18:24:04 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/07 19:30:41 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,8 @@ int	check_all(int ac, char **av, t_data *data)
 		return (0);
 	}
 	change_space_to_3(data);
-	if (!check_if_is_close(data))
-	{
-		free_map3(data);
-		free_map(data);
+	if (!check_letter(data) || !check_if_is_close(data) || \
+	!check_duplicate_position(data))
 		return (0);
-	}
 	return (1);
 }

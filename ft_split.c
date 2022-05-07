@@ -6,7 +6,7 @@
 /*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 21:17:34 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/05 20:42:50 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/07 17:26:53 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,9 @@ static void	ft_do_split(char **tab, int countword, char const *s, char c)
 		while (*s && !is_charset(*s, c))
 		{
 			tab[i][j++] = *s++;
-			//printf("%c",tab[i][j]);
+			
 		}
+		//printf("<<<%s\n",tab[i]);
 		tab[i][j] = '\0';
 		i++;
 	}

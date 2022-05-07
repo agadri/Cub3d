@@ -26,6 +26,15 @@
 # define WALL3 "./xpm/stone_wall.xpm"
 # define WALL4 "./xpm/stone.xpm"
 
+typedef struct s_pers
+{
+	int		pos_x;
+	int		pos_y;
+	char	dir_pers;
+	int		dir_x_pers;
+	int		dire_y_pers;
+}				t_pers;
+
 typedef struct s_img
 {
 	void	*img;
@@ -44,6 +53,7 @@ typedef struct s_data
 	void	*win;
 	void	*img;
 
+	t_pers	pers;
 	char	*line;
 	int		fd;
 	char	**map;
