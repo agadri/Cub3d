@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_if_close.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 15:16:24 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/05 17:36:47 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/06 18:11:05 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	change_space_to_3(t_data *data)
 {
 	int	i;
 
-	i = 0;
+	i = -1;
 	data->lenght = 0;
 	if (!data->map)
 		return ;
@@ -69,13 +69,9 @@ void	change_space_to_3(t_data *data)
 	data->map3 = malloc(sizeof(char *) * data->lenght + 1);
 	if (!data->map3)
 		return ;
-	i = 0;
-	while (i < data->lenght)
-	{
+	while (++i < data->lenght)
 		data->map3[i] = ft_str3dup(data->map[i], data);
-		printf("1 i = %d |%s|\n",i, data->map3[i]);
-		i++;
-	}// on a donc map3 qui est map avec en fond des 3
+		// on a donc map3 qui est map avec en fond des 3;
 }
 
 int	check_if_is_close(t_data *data)

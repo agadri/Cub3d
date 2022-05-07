@@ -2,6 +2,12 @@
 
 int	draw(t_data *data)//dessins
 {
-    (void)data;
+    int x;
+
+	x = 0;
+	while (x < data->width)
+	{
+		
+	}
     return (1);
 }
