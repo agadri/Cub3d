@@ -1,20 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free_map.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/09 17:53:58 by benmoham          #+#    #+#             */
+/*   Updated: 2022/05/09 17:54:00 by benmoham         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "free.h"
-
-
-void	free_img(t_data *data)
-{
-	if (data->north.img)
-		mlx_destroy_image(data->mlx, data->north.img);
-	if (data->south.img != NULL)
-		mlx_destroy_image(data->mlx, data->south.img);
-	if (data->west.img != NULL)
-		mlx_destroy_image(data->mlx, data->west.img);
-	if (data->east.img != NULL)
-		mlx_destroy_image(data->mlx, data->east.img);
-	//mlx_destroy_display()
-	// if (data->maintx.img != NULL)
-	// 	mlx_destroy_image(data->mlx, data->maintx.img);
-}
 
 void	free_tab(char **map)
 {

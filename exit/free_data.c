@@ -1,21 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free_data.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/09 17:54:03 by benmoham          #+#    #+#             */
+/*   Updated: 2022/05/09 17:54:04 by benmoham         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #include "free.h"
-
-/*
-	void	*mlx;
-	void	*win;
-	void	*img;
-
-	char	*line;
-	int		fd;
-	char	**map;
-	char	**map3;
-	t_img	north;
-	t_img	south;
-	t_img	west;
-	t_img	east;
-*/
-
-
 
 void	free_data(t_data *data)
 {
