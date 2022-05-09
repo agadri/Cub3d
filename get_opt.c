@@ -6,7 +6,7 @@
 /*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 19:18:40 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/04 19:31:19 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/09 15:43:55 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,23 @@ void	exit_opt(t_data *data, char *msg)
 {
 	printf("Error\n%s\n", msg);
 	if (data->line != NULL)
-		free(data->line);
-	if (data->mlx != NULL)
 	{
-		//free_img(data);
-		mlx_destroy_display(data->mlx);
-		free(data->mlx);
+		free(data->line);
+		data->line = NULL;
 	}
-	if (data->map != NULL)
+	if (data->mlx)
+	{
+		printf("wwwwwwwwwww\n");
+		free_img(data);
+		free_data(data);
+		mlx_destroy_display(data->mlx);
+		//free(data->mlx);
+	}
+	if (data->map)
 		return ;
 		//ft_free_tab(data->map);
+	//free_map(data);
+	//free_map3(data);
 	exit(1);
 }
 
@@ -79,7 +86,9 @@ int	get_opt(t_data *data, char *line, int res)
 	if (res == 2)
 	{
 		free(line);
+		free_tab(tmp);
 		exit_opt(data, "Already load");
 	}
+	free_tab(tmp);
 	return (res);
 }

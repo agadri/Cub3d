@@ -6,7 +6,7 @@
 /*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 13:24:53 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/07 19:42:36 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/09 15:54:59 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,28 @@ int	x(t_data *data)
 	free(data->mlx);
 	//ft_exit(vars, 0);
 	return (0);
+}
+
+char	*ft_strjoinfree(char *s1, char *s2, int to_free)
+{
+	char	*array;
+
+	array = malloc(sizeof(char) * ft_strlen(s1) + ft_strlen(s2) +1);
+	if (!array)
+		return (NULL);
+	strcpy(array, s1);
+	strcpy(array + ft_strlen(s1), s2);
+	if ((s1 != NULL) && (to_free == 1 || to_free == 3))
+	{	
+		free(s1);
+		s1 = NULL;
+	}
+	if ((s1 != NULL) && (to_free == 2 || to_free == 3))
+	{	
+		free(s2);
+		s2 = NULL;
+	}
+	return (array);
 }
 
 int	get_map(t_data *data, char **av)//obtenir la map
@@ -36,15 +58,25 @@ int	get_map(t_data *data, char **av)//obtenir la map
 		return (0);
 	while (get_next_line(data->fd, &tmp) == 1 && res != -1)// prend la map avec gnl
 	{
-		tmp = ft_strjoin(tmp, " \n");//ligne par ligne 
+		tmp = ft_strjoinfree(tmp, " \n", 1);//ligne par ligne 
 		res = get_opt(data, tmp, 0);// quand c'est pas une option copie pas
 		if (res != 1)
-			data->line = ft_strjoin(data->line, tmp);
+			data->line = ft_strjoinfree(data->line, tmp, 1);
+		if (tmp)
+		{
+			free(tmp);
+			tmp = NULL;
+		}
 		//printf("?%s?\n", tmp);
 	}
 	free(tmp);
 	close(data->fd);
 	data->map = ft_split(data->line, '\n');// toute la ligne joint donc split
+	if (data->line)
+	{
+		free(data->line);
+		data->line = NULL;
+	}
 	if (!data->map)
 		return (0);
 	data->width = size_width(data);
@@ -65,6 +97,8 @@ int	main(int ac, char **av)
 
 	data.mlx = NULL;
 	data.mlx = mlx_init();
+	if (!data.mlx)
+		return (0);
 	data.map = NULL;
 	data.map3 = NULL;
 	
@@ -82,8 +116,8 @@ int	main(int ac, char **av)
 	//mlx_hook(data.win, 33, 131072, &ft_free, &data);
 	mlx_do_sync(data.mlx);
 	mlx_loop(data.mlx);//la boucle qui maintiens la window
-	free_map(data.map);
-	free_map(data.map3);
+	free_map(&data);
+	free_map3(&data);
 
 	return (1);
 }
