@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_position.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 16:08:00 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/07 19:43:56 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/09 17:12:36 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,7 @@ void	get_first_dir(t_data *data)
 			if (data->map3[j][i] && (data->map3[j][i] == 'N' || \
 			data->map3[j][i] == 'S' || data->map3[j][i] == 'E' || \
 			data->map3[j][i] == 'W'))
-			{
 				data->pers.dir_pers = data->map3[j][i];
-				printf("dir :%c\n",data->pers.dir_pers);
-			}
 			i++;
 		}
 		j++;

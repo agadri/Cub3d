@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_mlx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 15:20:58 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/09 15:32:43 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/09 17:06:58 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,4 @@ void	init_img(t_data *data)
 	data->south.img = NULL;
 	data->west.img = NULL;
 	data->east.img = NULL;
-
-}
-
-void	init_first(t_data *data)
-{
-	init_data(data);
-	init_img(data);
-	init_win(data);
-	init_pers(data);
 }

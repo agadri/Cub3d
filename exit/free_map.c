@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free_map.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/09 17:53:58 by benmoham          #+#    #+#             */
+/*   Updated: 2022/05/09 17:54:00 by benmoham         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "free.h"
 
 void	free_tab(char **map)
@@ -8,7 +20,6 @@ void	free_tab(char **map)
 	while (map[i])
 	{
 		free(map[i]);
-		map[i] = NULL;
 		i++;
 	}
 	free(map);
@@ -23,11 +34,9 @@ void	free_map3(t_data *data)
 	while (i <= data->lenght - 1)
 	{
 		free(data->map3[i]);
-		data->map3[i] = NULL;
 		i++;
 	}
 	free(data->map3);
-	data->map3 = NULL;
 }
 
 void	free_map(t_data *data)
@@ -38,9 +47,7 @@ void	free_map(t_data *data)
 	while (data->map[i])
 	{
 		free(data->map[i]);
-		data->map[i] = NULL;
 		i++;
 	}
 	free(data->map);
-	data->map = NULL;
 }

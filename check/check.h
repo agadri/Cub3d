@@ -17,10 +17,6 @@ int		check_file(char *name_map);
 int		check_fd(char *name_map);
 int		check_all(int ac, char **av, t_data *data);
 int		check_letter(t_data *data);
-void	get_first_position(t_data *data);
 int		check_duplicate_position(t_data *data);
-void	get_first_dir(t_data *data);
-void	translate_dir(t_data *data);
-void	init_pos_dir(t_data *data);
 
 #endif

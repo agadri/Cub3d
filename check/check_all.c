@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_all.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 17:17:35 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/09 15:01:42 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/09 17:21:37 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	check_all(int ac, char **av, t_data *data)
 		return (0);
 	else if (!get_map(data, av))
 	{
-		//wrong map;
 		printf("%s\n","Error \n when get map\n");
 		return (0);
 	}
@@ -29,11 +28,10 @@ int	check_all(int ac, char **av, t_data *data)
 		return (0);
 	}
 	change_space_to_3(data);
-	if (!check_letter(data) || !check_if_is_close(data) || \
-	!check_duplicate_position(data))
+	if (!check_if_is_close(data))
 	{
-		free_map(data);
 		free_map3(data);
+		free_map(data);
 		return (0);
 	}
 	return (1);

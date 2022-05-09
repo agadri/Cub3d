@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 12:50:37 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/07 19:43:27 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/09 17:19:42 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@ int	check_letter(t_data *data)// check si il n'y que les bon char
 	j = 0;
 	if (!data->map)
 		return (0);
-	while (j <= data->lenght - 1)
+	while (data->map[j])
 	{
 		i = 0;
-		while (i <= data->width - 1)
+		while (data->map[j][i])
 		{
-			if (data->map3[j][i] && (data->map3[j][i] != '0' && data->map3[j][i] != '1' && \
-			data->map3[j][i] != 'N' && data->map3[j][i] != 'S' && data->map3[j][i] != 'E' && \
-			data->map3[j][i] != 'W' && data->map3[j][i] != ' ' && data->map3[j][i] != '3'))
+			if (data->map[j][i] && (data->map[j][i] != '0' && data->map[j][i] != '1' && data->map[j][i] != 'N' && \
+			data->map[j][i] != 'S' && data->map[j][i] != 'E' && data->map[j][i] != 'W' && data->map[j][i] != ' '))
 			{
-				printf("%s\n", "Error \n use of wrong character");
+				// printf("%s\n", "Error \n use of wrong character");
+				exit_opt(data, "Error\n wrong char\n");
 				return (0);
 			}
 			i++;
@@ -63,17 +63,15 @@ int	check_duplicate_position(t_data *data)
 
 	j = 0;
 	status = 0;
-	while (j <= data->lenght - 1)
+	while (data->map[j])
 	{
 		i = 0;
-		
-		while (i <= data->width - 1)
+		while (data->map[j][i])
 		{
-			if (data->map3[j][i] && (data->map3[j][i] == 'N' || \
-			data->map3[j][i] == 'S' || data->map3[j][i] == 'E' || \
-			data->map3[j][i] == 'W'))
+			if (data->map[j][i] && (data->map[j][i] == 'N' || \
+			data->map[j][i] == 'S' || data->map[j][i] == 'E' || \
+			data->map[j][i] == 'W'))
 			{
-				
 				if (status >= 1)
 					return (if_status1());
 				status++;
@@ -83,4 +81,7 @@ int	check_duplicate_position(t_data *data)
 		j++;
 	}
 	return (if_status0(status));
+	//exit_opt(data, "zboub2\n");
+	return (1);
 }
+

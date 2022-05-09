@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_opt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 19:18:40 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/09 16:34:24 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/09 17:51:42 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,19 @@
 
 void	exit_opt(t_data *data, char *msg)
 {
-	printf("Error\n%s\n", msg);
-	if (data->line != NULL)
+	if (msg == NULL)
+		(void)msg;
+	//printf("Error\n%s\n", msg);
+	if (data->mlx != NULL)
 	{
-		free(data->line);
-		data->line = NULL;
-	}
-	if (data->mlx)
-	{
-		printf("wwwwwwwwwww\n");
-		free_img(data);
-		free_data(data);
+		if (data->win != NULL)
+		{
+			free_img(data);
+			mlx_destroy_window(data->mlx, data->win);
+		}
 		mlx_destroy_display(data->mlx);
-		//free(data->mlx);
+		free(data->mlx);
 	}
-	if (data->map)
-		return ;
-		//ft_free_tab(data->map);
-	//free_map(data);
-	//free_map3(data);
 	exit(1);
 }
 
@@ -50,6 +44,8 @@ int	get_texture(t_data *data, char *path, t_img *img)// obtient les textures et 
 		{
 			path[i] = '\0';
 			break ;
+		}
+		i++;
 	}
 	img->img = mlx_xpm_file_to_image(data->mlx, path, &img->width, &img->height);
 	if (!img->img)// on init les image /textures
