@@ -26,7 +26,7 @@ OBJS 		= 	${SRCS:.c=.o}
 
 PATH_MLX	=	./mlx
 CC 			= 	gcc
-CFLAGS		= 	-Wall -Wextra -Werror -g3  #-fsanitize=address
+CFLAGS		= 	-Wall -Wextra -Werror -g3 -fsanitize=address
 RM			= 	rm -f
 NAME		= 	parse
 FLAGS		=	-ldl -Imlx -Lmlx -lmlx -lm -lXext -lX11
