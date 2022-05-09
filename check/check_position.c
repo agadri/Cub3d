@@ -6,7 +6,7 @@
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 16:08:00 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/09 14:32:36 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/09 14:59:04 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,8 @@ void	init_pos_dir(t_data *data)
 	get_first_position(data);
 	get_first_dir(data);
 	translate_dir(data);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> b2479d0b160a92934a82cabac7fa8080b46a58fd
