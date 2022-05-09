@@ -6,7 +6,7 @@
 /*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 19:18:40 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/09 15:43:55 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/09 16:34:24 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ int	get_texture(t_data *data, char *path, t_img *img)// obtient les textures et 
 		{
 			path[i] = '\0';
 			break ;
-		}
-		i++;
 	}
 	img->img = mlx_xpm_file_to_image(data->mlx, path, &img->width, &img->height);
 	if (!img->img)// on init les image /textures
