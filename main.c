@@ -6,7 +6,7 @@
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 13:24:53 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/07 14:39:37 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/09 17:35:25 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int	get_map(t_data *data, char **av)//obtenir la map
 	res = 0;
 	init_data(data);// j'init ma structure etc
 	init_win(data);
-	init_data(data);
 	init_img(data);
 	data->fd = check_fd(av[1]);//prend le fd en le checkant
 	data->line = ft_strdup("");//init line
@@ -71,15 +70,30 @@ int	get_map(t_data *data, char **av)//obtenir la map
 	!check_duplicate_position(data))
 	{
 		free_map(data);
+		exit_opt(data, NULL);
 		return (0);
 	}
 	return (1);//on a la map 
 }
-
+/* 
 int	loop_raycast(t_data *data)
 {
-	key_hook(data);
+	key_hook(,data);
 	draw(data);
+	return (0);
+}
+ */
+
+int	key_hook(int keycode, t_data *data)
+{
+	if (keycode == 65307)
+	{
+		if (data->map3)
+			free_map3(data);
+		if (data->map)
+			free_map(data);
+		exit_opt(data, "Bye bye \n");
+	}
 	return (0);
 }
 
@@ -93,15 +107,18 @@ int	main(int ac, char **av)
 	data.map3 = NULL;
 	if (!check_all(ac, av, &data))
 	{
-		// je check la map
+		exit_opt(&data, "Error\n map\n");
 		return (0);// sinon pas bon tchao
 	}
-	mlx_loop_hook(data.mlx, loop_raycast, &data);//pour agir sur la window
+	puts("jdoi fermer");
+	mlx_key_hook(data.win, key_hook, &data);
+	//mlx_hook(game.win, 17, 1L << 17, mouse_hook, &game);
+	//mlx_loop_hook(data.mlx, loop_raycast, &data);//pour agir sur la window
 	//mlx_hook(data.win, 2, 1L << 0, key_press, &data);//quand t'appuie sur une touche
 	//mlx_hook(data.win, 33, 131072, &ft_free, &data);
 	mlx_do_sync(data.mlx);
 	mlx_loop(data.mlx);//la boucle qui maintiens la window
+	//if (free)
 	free_map(&data);
-
 	return (1);
 }

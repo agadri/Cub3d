@@ -6,7 +6,7 @@
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 17:17:35 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/06 18:24:04 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/09 17:21:37 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	check_all(int ac, char **av, t_data *data)
 		return (0);
 	else if (!get_map(data, av))
 	{
-		//wrong map;
 		printf("%s\n","Error \n when get map\n");
 		return (0);
 	}

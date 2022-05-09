@@ -1,5 +1,21 @@
 #include "free.h"
 
+
+void	free_img(t_data *data)
+{
+	if (data->north.img)
+		mlx_destroy_image(data->mlx, data->north.img);
+	if (data->south.img != NULL)
+		mlx_destroy_image(data->mlx, data->south.img);
+	if (data->west.img != NULL)
+		mlx_destroy_image(data->mlx, data->west.img);
+	if (data->east.img != NULL)
+		mlx_destroy_image(data->mlx, data->east.img);
+	//mlx_destroy_display()
+	// if (data->maintx.img != NULL)
+	// 	mlx_destroy_image(data->mlx, data->maintx.img);
+}
+
 void	free_tab(char **map)
 {
 	int	i;

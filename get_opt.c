@@ -6,7 +6,7 @@
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 19:18:40 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/06 18:22:12 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/09 17:35:15 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,19 @@
 
 void	exit_opt(t_data *data, char *msg)
 {
-	printf("Error\n%s\n", msg);
-	if (data->line != NULL)
-		free(data->line);
+	if (msg == NULL)
+		(void)msg;
+	//printf("Error\n%s\n", msg);
 	if (data->mlx != NULL)
 	{
-		//free_img(data);
+		if (data->win != NULL)
+		{
+			free_img(data);
+			mlx_destroy_window(data->mlx, data->win);
+		}
 		mlx_destroy_display(data->mlx);
 		free(data->mlx);
 	}
-	if (data->map != NULL)
-		return ;
-		//ft_free_tab(data->map);
 	exit(1);
 }
 

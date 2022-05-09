@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 12:50:37 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/05 20:07:14 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/09 17:19:42 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int	check_letter(t_data *data)// check si il n'y que les bon char
 			if (data->map[j][i] && (data->map[j][i] != '0' && data->map[j][i] != '1' && data->map[j][i] != 'N' && \
 			data->map[j][i] != 'S' && data->map[j][i] != 'E' && data->map[j][i] != 'W' && data->map[j][i] != ' '))
 			{
-				printf("%s\n", "Error \n use of wrong character");
+				// printf("%s\n", "Error \n use of wrong character");
+				exit_opt(data, "Error\n wrong char\n");
 				return (0);
 			}
 			i++;
@@ -80,5 +81,7 @@ int	check_duplicate_position(t_data *data)
 		j++;
 	}
 	return (if_status0(status));
+	//exit_opt(data, "zboub2\n");
+	return (1);
 }
 

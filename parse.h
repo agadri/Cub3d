@@ -72,7 +72,6 @@ typedef struct s_data
 # include "gnl/get_next_line.h"
 # include "check/check.h"
 # include "init/init_all.h"
-# include "move/move.h"
 # include "draw/draw.h"
 # include "exit/free.h"
 
@@ -84,6 +83,7 @@ int		get_opt(t_data *data, char *line, int res);
 void	exit_opt(t_data *data, char *msg);
 int		ft_strlen(char *str);
 int		size_width(t_data *data);
+int		key_hook(int keycode, t_data *game);
 int		size_lenght(t_data *data);
 char	*ft_str3dup(char *s, t_data *data);
 void	*ft_memset(void *b, int c, unsigned int len);

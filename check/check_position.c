@@ -6,7 +6,7 @@
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 16:08:00 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/09 14:59:04 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/09 17:12:36 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,7 @@ void	get_first_dir(t_data *data)
 			if (data->map3[j][i] && (data->map3[j][i] == 'N' || \
 			data->map3[j][i] == 'S' || data->map3[j][i] == 'E' || \
 			data->map3[j][i] == 'W'))
-			{
 				data->pers.dir_pers = data->map3[j][i];
-				printf("dir :%c\n",data->pers.dir_pers);
-			}
 			i++;
 		}
 		j++;
@@ -93,8 +90,4 @@ void	init_pos_dir(t_data *data)
 	get_first_position(data);
 	get_first_dir(data);
 	translate_dir(data);
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> b2479d0b160a92934a82cabac7fa8080b46a58fd
