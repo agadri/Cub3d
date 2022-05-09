@@ -6,7 +6,7 @@
 /*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 17:56:28 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/07 17:50:06 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/09 15:42:16 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ char	*ft_resave(char *save)
 	dst = (char *)malloc(sizeof(char) * ((len - i) + 1));
 	if (!dst)
 	{
-		save = NULL;
 		free(save);
+		save = NULL;
 		return (NULL);
 	}
 	j = 0;
@@ -98,8 +98,6 @@ int	get_next_line(int fd, char **line)
 			return (0);
 		}
 		save = ft_strjoin(save, buffer);
-		
-		
 	}
 	if (ft_end(save) == 1)
 		*line = ft_save(save);

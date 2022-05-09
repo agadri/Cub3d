@@ -6,7 +6,7 @@
 /*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 17:17:35 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/07 19:30:41 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/09 15:01:42 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ int	check_all(int ac, char **av, t_data *data)
 	change_space_to_3(data);
 	if (!check_letter(data) || !check_if_is_close(data) || \
 	!check_duplicate_position(data))
+	{
+		free_map(data);
+		free_map3(data);
 		return (0);
+	}
 	return (1);
 }
