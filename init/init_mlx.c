@@ -6,7 +6,7 @@
 /*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 15:20:58 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/04 19:23:55 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/07 19:43:06 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,12 @@ void	init_img(t_data *data)
 	data->south.status = 0;
 	data->west.status = 0;
 	data->east.status = 0;
+}
+
+void	init_first(t_data *data)
+{
+	init_win(data);
+	init_data(data);
+	init_img(data);
+	init_pers(data);
 }

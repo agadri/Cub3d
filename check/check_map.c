@@ -6,7 +6,7 @@
 /*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 12:50:37 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/05 20:07:14 by adegadri         ###   ########.fr       */
+/*   Updated: 2022/05/07 19:43:27 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,14 @@ int	check_letter(t_data *data)// check si il n'y que les bon char
 	j = 0;
 	if (!data->map)
 		return (0);
-	while (data->map[j])
+	while (j <= data->lenght - 1)
 	{
 		i = 0;
-		while (data->map[j][i])
+		while (i <= data->width - 1)
 		{
-			if (data->map[j][i] && (data->map[j][i] != '0' && data->map[j][i] != '1' && data->map[j][i] != 'N' && \
-			data->map[j][i] != 'S' && data->map[j][i] != 'E' && data->map[j][i] != 'W' && data->map[j][i] != ' '))
+			if (data->map3[j][i] && (data->map3[j][i] != '0' && data->map3[j][i] != '1' && \
+			data->map3[j][i] != 'N' && data->map3[j][i] != 'S' && data->map3[j][i] != 'E' && \
+			data->map3[j][i] != 'W' && data->map3[j][i] != ' ' && data->map3[j][i] != '3'))
 			{
 				printf("%s\n", "Error \n use of wrong character");
 				return (0);
@@ -62,15 +63,17 @@ int	check_duplicate_position(t_data *data)
 
 	j = 0;
 	status = 0;
-	while (data->map[j])
+	while (j <= data->lenght - 1)
 	{
 		i = 0;
-		while (data->map[j][i])
+		
+		while (i <= data->width - 1)
 		{
-			if (data->map[j][i] && (data->map[j][i] == 'N' || \
-			data->map[j][i] == 'S' || data->map[j][i] == 'E' || \
-			data->map[j][i] == 'W'))
+			if (data->map3[j][i] && (data->map3[j][i] == 'N' || \
+			data->map3[j][i] == 'S' || data->map3[j][i] == 'E' || \
+			data->map3[j][i] == 'W'))
 			{
+				
 				if (status >= 1)
 					return (if_status1());
 				status++;
@@ -81,4 +84,3 @@ int	check_duplicate_position(t_data *data)
 	}
 	return (if_status0(status));
 }
-

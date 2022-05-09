@@ -6,10 +6,12 @@ NAME = cub3D
 SRCS = 	gnl/get_next_line_utils.c \
 		gnl/get_next_line.c \
 		init/init_mlx.c \
+		init/init_pers.c \
 		check/check_if_close.c \
 		check/check_map.c \
 		check/check_utils.c \
 		check/check_name.c \
+		check/check_position.c \
 		check/check_all.c \
 		draw/draw.c \
 		move/move_all.c \
