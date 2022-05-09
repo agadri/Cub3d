@@ -53,8 +53,8 @@ char	*ft_resave(char *save)
 	dst = (char *)malloc(sizeof(char) * ((len - i) + 1));
 	if (!dst)
 	{
-		save = NULL;
 		free(save);
+		save = NULL;
 		return (NULL);
 	}
 	j = 0;

@@ -17,7 +17,6 @@ void	init_win(t_data *data)
 	data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, "cub3D");
 	if (!data->win)
 		exit_opt(data, "Loading window failed");
-	//init_display(data);
 }
 
 void	init_data(t_data *data)

@@ -25,7 +25,7 @@ void	exit_opt(t_data *data, char *msg)
 			mlx_destroy_window(data->mlx, data->win);
 		}
 		mlx_destroy_display(data->mlx);
-		free(data->mlx);
+		//free(data->mlx);
 	}
 	exit(1);
 }
@@ -44,8 +44,6 @@ int	get_texture(t_data *data, char *path, t_img *img)// obtient les textures et 
 		{
 			path[i] = '\0';
 			break ;
-		}
-		i++;
 	}
 	img->img = mlx_xpm_file_to_image(data->mlx, path, &img->width, &img->height);
 	if (!img->img)// on init les image /textures

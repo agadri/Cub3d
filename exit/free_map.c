@@ -27,6 +27,7 @@ void	free_tab(char **map)
 		i++;
 	}
 	free(map);
+	map = NULL;
 }
 
 void	free_map3(t_data *data)

@@ -17,12 +17,14 @@ SRCS = 	gnl/get_next_line_utils.c \
 		utils.c \
 		get_opt.c \
 		exit/free_map.c \
+		exit/free_data.c \
 		main.c
 				
 OBJS 		= 	${SRCS:.c=.o}
 
 PATH_MLX	=	./mlx
 CC 			= 	gcc
+
 CFLAGS		= 	-Wall -Wextra -Werror -g3 #-fsanitize=address
 RM			= 	rm -f
 NAME		= 	parse

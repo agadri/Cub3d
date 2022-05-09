@@ -36,6 +36,28 @@ int	x(t_data *data)
 	return (0);
 }
 
+char	*ft_strjoinfree(char *s1, char *s2, int to_free)
+{
+	char	*array;
+
+	array = malloc(sizeof(char) * ft_strlen(s1) + ft_strlen(s2) +1);
+	if (!array)
+		return (NULL);
+	strcpy(array, s1);
+	strcpy(array + ft_strlen(s1), s2);
+	if ((s1 != NULL) && (to_free == 1 || to_free == 3))
+	{	
+		free(s1);
+		s1 = NULL;
+	}
+	if ((s1 != NULL) && (to_free == 2 || to_free == 3))
+	{	
+		free(s2);
+		s2 = NULL;
+	}
+	return (array);
+}
+
 int	get_map(t_data *data, char **av)//obtenir la map
 {
 	int		res;
@@ -103,6 +125,8 @@ int	main(int ac, char **av)
 
 	data.mlx = NULL;
 	data.mlx = mlx_init();
+	if (!data.mlx)
+		return (0);
 	data.map = NULL;
 	data.map3 = NULL;
 	if (!check_all(ac, av, &data))
