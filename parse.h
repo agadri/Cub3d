@@ -7,6 +7,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <errno.h>
+#include <math.h>
 #include <string.h>
 
 # include "mlx/mlx.h"
@@ -26,6 +27,22 @@
 # define WALL3 "./xpm/stone_wall.xpm"
 # define WALL4 "./xpm/stone.xpm"
 
+
+typedef struct s_coord
+{
+	double		x;
+	double		y;
+}				t_coord;
+
+typedef struct s_play
+{
+	t_coord		pos;
+	t_coord		dir;
+	int status;
+	t_coord		plane;
+}				t_play;
+
+
 typedef struct s_pers
 {
 	int		pos_x;
@@ -34,6 +51,14 @@ typedef struct s_pers
 	int		dir_x_pers;
 	int		dire_y_pers;
 }				t_pers;
+
+typedef struct s_color
+{
+	int			r;
+	int			g;
+	int			b;
+	int		status;
+}				t_color;
 
 typedef struct s_img
 {
@@ -46,6 +71,26 @@ typedef struct s_img
 	int		line;
 	int		status;
 }				t_img;
+
+typedef struct s_ray
+{
+	t_coord		dir;
+	t_coord		map;
+	int			mapx;
+	int			mapy;
+	t_coord		delta_dist;
+	t_coord		side_dist;
+	t_coord		cam;
+	int	 hit;
+	int			stepx;
+	int			stepy;
+	int			side;
+	double		wall_dist;
+	int			line_height;
+	int			wall_start;
+	int			wall_end;
+	double		wall_x;
+}				t_ray;
 
 typedef struct s_data
 {
@@ -64,7 +109,18 @@ typedef struct s_data
 	t_img	south;
 	t_img	west;
 	t_img	east;
+	t_ray ray;
+	t_img tx;
+	t_color	floor;
+	t_color	ceiling;
+	t_play	player;
 	int		exit;
+	int	key_w;
+	int	key_s;
+	int	key_d;
+	int	key_a;
+	int	key_l;
+	int	key_r;
 }	t_data;
 
 # include "gnl/get_next_line.h"
@@ -87,5 +143,6 @@ char	*ft_str3dup(char *s, t_data *data);
 void	*ft_memset(void *b, int c, unsigned int len);
 int		get_map(t_data *data, char **av);
 char	*ft_strdup(char *src);
+
 
 #endif

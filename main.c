@@ -6,7 +6,7 @@
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 13:24:53 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/09 17:50:38 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/10 17:15:40 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,31 @@ int	x(t_data *data)
 	return (0);
 }
 
+int check_temp(char *s)
+{
+	int i;
+
+	i = 0;
+	//printf("ici %s", s);
+	while(s[i])
+	{
+		if (s[i] != ' ' && s[i] != '\t' )//&& s[i] != '\n')//&& s[i] != '\0')
+		{
+			//printf("...\n");
+			return(0);
+		}
+		i++;
+	}
+	
+	return(1);
+}
+
 int	get_map(t_data *data, char **av)//obtenir la map
 {
 	int		res;
 	char	*tmp;
-
 	tmp = NULL;
+	int status = 0;
 	res = 0;
 	init_data(data);// j'init ma structure etc
 	init_win(data);
@@ -50,13 +69,23 @@ int	get_map(t_data *data, char **av)//obtenir la map
 	data->line = ft_strdup("");//init line
 	if (!data->line)
 		return (0);
+	int i = 0;
 	while (get_next_line(data->fd, &tmp) == 1 && res != -1)// prend la map avec gnl
 	{
-		tmp = ft_strjoinfree(tmp, " \n", 1);//ligne par ligne 
-		res = get_opt(data, tmp, 0);// quand c'est pas une option copie pas
-		if (res != 1)
-			data->line = ft_strjoinfree(data->line, tmp, 1);
-		free(tmp);
+		if (status == 0 && (check_temp(tmp) == 1))
+			free(tmp);
+		else if (check_temp(tmp) == 0 || status == 1)
+		{
+			tmp = ft_strjoinfree(tmp, " \n", 1);//ligne par ligne 
+			res = get_opt(data, tmp, 0);// quand c'est pas une option copie pas
+			if (res != 1)
+			{
+				data->line = ft_strjoinfree(data->line, tmp, 1);
+				status = 1;
+			}
+			free(tmp);
+		}
+		i++;
 	}
 	free(tmp);
 	close(data->fd);
@@ -69,20 +98,21 @@ int	get_map(t_data *data, char **av)//obtenir la map
 	if (!check_letter(data) || \
 	!check_duplicate_position(data))
 	{
+		//printf("tagrosse daronne \n");
 		free_map(data);
 		exit_opt(data, NULL);
 		return (0);
 	}
 	return (1);//on a la map 
 }
-/* 
+
 int	loop_raycast(t_data *data)
 {
-	key_hook(,data);
+	//key_hook(data);
 	draw(data);
 	return (0);
 }
- */
+
 
 int	key_hook(int keycode, t_data *data)
 {
@@ -94,6 +124,16 @@ int	key_hook(int keycode, t_data *data)
 			free_map(data);
 		exit_opt(data, "Bye bye \n");
 	}
+	return (0);
+}
+
+int	mouse_hook(t_data *data)
+{
+	if (data->map3)
+		free_map3(data);
+	if (data->map)
+		free_map(data);
+	exit_opt(data, "Bye bye \n");
 	return (0);
 }
 
@@ -110,15 +150,15 @@ int	main(int ac, char **av)
 		exit_opt(&data, "Error\n map\n");
 		return (0);// sinon pas bon tchao
 	}
-	puts("jdoi fermer");
+	init_pos_dir(&data);
 	mlx_key_hook(data.win, key_hook, &data);
+	mlx_hook(data.win, 17, 1L << 17, mouse_hook, &data);
 	//mlx_hook(game.win, 17, 1L << 17, mouse_hook, &game);
-	//mlx_loop_hook(data.mlx, loop_raycast, &data);//pour agir sur la window
+	mlx_loop_hook(data.mlx, loop_raycast, &data);//pour agir sur la window
 	//mlx_hook(data.win, 2, 1L << 0, key_press, &data);//quand t'appuie sur une touche
 	//mlx_hook(data.win, 33, 131072, &ft_free, &data);
 	mlx_do_sync(data.mlx);
 	mlx_loop(data.mlx);//la boucle qui maintiens la window
-	//if (free)
 	free_map(&data);
 	return (1);
 }

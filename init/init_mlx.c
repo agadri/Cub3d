@@ -6,7 +6,7 @@
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 15:20:58 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/09 17:06:58 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/10 17:23:46 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	init_win(t_data *data)
 {
 	data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, "cub3D");
 	if (!data->win)
-		exit_opt(data, "Loading window failed");
+		exit_opt(data, "window failed");
+	init_display(data);
 }
 
 void	init_data(t_data *data)

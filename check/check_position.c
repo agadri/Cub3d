@@ -6,7 +6,7 @@
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 16:08:00 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/09 17:12:36 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/10 17:44:30 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,5 @@ void	init_pos_dir(t_data *data)
 	get_first_position(data);
 	get_first_dir(data);
 	translate_dir(data);
+	init_player(data, data->pers.pos_x, data->pers.pos_y, data->pers.dir_pers);
 }
