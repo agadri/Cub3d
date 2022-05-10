@@ -34,6 +34,14 @@ typedef struct s_coord
 	double		y;
 }				t_coord;
 
+typedef struct s_color
+{
+	int			r;
+	int			g;
+	int			b;
+	int			status;
+}				t_color;
+
 typedef struct s_play
 {
 	t_coord		pos;
@@ -47,13 +55,13 @@ typedef struct s_play
 	int			dire_y_pers;
 }				t_play;
 
-typedef struct s_color
+typedef struct s_rgb
 {
 	int			r;
 	int			g;
 	int			b;
 	int			status;
-}				t_color;
+}				t_rgb;
 
 typedef struct s_img
 {
@@ -115,6 +123,7 @@ typedef struct s_data
 	int		key_a;
 	int		key_l;
 	int		key_r;
+	t_rgb	color;
 }	t_data;
 
 # include "gnl/get_next_line.h"
@@ -132,11 +141,14 @@ int		get_opt(t_data *data, char *line, int res);
 void	exit_opt(t_data *data, char *msg);
 int		ft_strlen(char *str);
 int		size_width(t_data *data);
+int		ft_digit(char *str);
+int		ft_isdigit(int c);
 int		size_lenght(t_data *data);
 char	*ft_str3dup(char *s, t_data *data);
 void	*ft_memset(void *b, int c, unsigned int len);
 int		get_map(t_data *data, char **av);
 char	*ft_strdup(char *src);
+long	ft_atol(char *str);
 
 
 #endif

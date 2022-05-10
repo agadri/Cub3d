@@ -6,7 +6,7 @@
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 13:24:53 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/10 19:57:54 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/10 20:17:53 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,8 @@ char        *ft_strjoinfree(char *s1, char *s2, int to_free)
 
 int	x(t_data *data)
 {
-	//ft_destroy_images(data);
-	//ft_destroy_window(data);
 	mlx_destroy_display(data->mlx);
 	free(data->mlx);
-	//ft_exit(vars, 0);
 	return (0);
 }
 
@@ -41,14 +38,10 @@ int check_temp(char *s)
 	int i;
 
 	i = 0;
-	//printf("ici %s", s);
 	while(s[i])
 	{
-		if (s[i] != ' ' && s[i] != '\t' )//&& s[i] != '\n')//&& s[i] != '\0')
-		{
-			//printf("...\n");
+		if (s[i] != ' ' && s[i] != '\t' )
 			return(0);
-		}
 		i++;
 	}
 	
@@ -98,7 +91,6 @@ int	get_map(t_data *data, char **av)//obtenir la map
 	if (!check_letter(data) || \
 	!check_duplicate_position(data))
 	{
-		//printf("tagrosse daronne \n");
 		free_map(data);
 		exit_opt(data, NULL);
 		return (0);
@@ -133,21 +125,17 @@ int	main(int ac, char **av)
 	data.mlx = mlx_init();
 	data.map = NULL;
 	data.map3 = NULL;
+	
 	if (!check_all(ac, av, &data))
 	{
 		exit_opt(&data, "Error\n map\n");
 		return (0);// sinon pas bon tchao
 	}
-	printf("teub\b");
 	init_pos_dir(&data);
-	printf("6\n");
 	mlx_hook(data.win, 17, 1L << 17, mouse_hook, &data);
-	//mlx_hook(game.win, 17, 1L << 17, mouse_hook, &game);
 	mlx_loop_hook(data.mlx, loop_raycast, &data);//pour agir sur la window
 	mlx_hook(data.win, 2, 1L << 0, key_press, &data);//quand t'appuie sur une touche
 	mlx_hook(data.win, 3, 1L << 1, key_release, &data);
-	printf("7\n");
-	//mlx_hook(data.win, 33, 131072, &ft_free, &data);
 	mlx_do_sync(data.mlx);
 	mlx_loop(data.mlx);//la boucle qui maindtiens la window
 	free_map(&data);

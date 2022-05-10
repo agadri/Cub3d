@@ -1,7 +1,10 @@
-NO xpm/sand_floor.xpm
-SO xpm/sand.xpm
+NO xpm/stone_wall.xpm
+SO xpm/stone_wall.xpm
 WE xpm/stone_wall.xpm
-EA xpm/stone.xpm
+EA xpm/stone_wall.xpm
+
+F 250,100,0
+C 111,176,234
 
 11111
 

@@ -6,7 +6,7 @@
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 17:54:14 by benmoham          #+#    #+#             */
-/*   Updated: 2022/05/10 14:57:13 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/10 20:28:04 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,27 @@ void	*ft_memset(void *b, int c, unsigned int len)
 		len--;
 	}
 	return (b);
+}
+
+long	ft_atol(char *str)
+{
+	int		neg;
+	long	res;
+
+	neg = 1;
+	res = 0;
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		++str;
+	if (*str == '-')
+		neg = -neg;
+	if (*str == '+' || *str == '-')
+		++str;
+	else if (*str == '+')
+		++str;
+	while (*str >= '0' && *str <= '9')
+	{
+		res = res * 10 + *str - '0';
+		++str;
+	}
+	return (neg * res);
 }

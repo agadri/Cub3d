@@ -22,6 +22,7 @@ SRCS = 	gnl/get_next_line_utils.c \
 		catch_size.c \
 		ft_split.c \
 		utils.c \
+		utils2.c \
 		get_opt.c \
 		exit/free_map.c \
 		exit/free_data.c \
