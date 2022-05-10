@@ -38,26 +38,21 @@ typedef struct s_play
 {
 	t_coord		pos;
 	t_coord		dir;
-	int status;
+	int 		status;
 	t_coord		plane;
+	int			pos_x;
+	int			pos_y;
+	char		dir_pers;
+	int			dir_x_pers;
+	int			dire_y_pers;
 }				t_play;
-
-
-typedef struct s_pers
-{
-	int		pos_x;
-	int		pos_y;
-	char	dir_pers;
-	int		dir_x_pers;
-	int		dire_y_pers;
-}				t_pers;
 
 typedef struct s_color
 {
 	int			r;
 	int			g;
 	int			b;
-	int		status;
+	int			status;
 }				t_color;
 
 typedef struct s_img
@@ -81,7 +76,7 @@ typedef struct s_ray
 	t_coord		delta_dist;
 	t_coord		side_dist;
 	t_coord		cam;
-	int	 hit;
+	int	 		hit;
 	int			stepx;
 	int			stepy;
 	int			side;
@@ -98,7 +93,6 @@ typedef struct s_data
 	void	*win;
 	void	*img;
 
-	t_pers	pers;
 	char	*line;
 	int		fd;
 	char	**map;
@@ -109,23 +103,24 @@ typedef struct s_data
 	t_img	south;
 	t_img	west;
 	t_img	east;
-	t_ray ray;
-	t_img tx;
+	t_ray 	ray;
+	t_img 	tx;
 	t_color	floor;
 	t_color	ceiling;
 	t_play	player;
 	int		exit;
-	int	key_w;
-	int	key_s;
-	int	key_d;
-	int	key_a;
-	int	key_l;
-	int	key_r;
+	int		key_w;
+	int		key_s;
+	int		key_d;
+	int		key_a;
+	int		key_l;
+	int		key_r;
 }	t_data;
 
 # include "gnl/get_next_line.h"
 # include "check/check.h"
 # include "init/init_all.h"
+# include "move/move.h"
 # include "draw/draw.h"
 # include "exit/free.h"
 
@@ -137,7 +132,6 @@ int		get_opt(t_data *data, char *line, int res);
 void	exit_opt(t_data *data, char *msg);
 int		ft_strlen(char *str);
 int		size_width(t_data *data);
-int		key_hook(int keycode, t_data *game);
 int		size_lenght(t_data *data);
 char	*ft_str3dup(char *s, t_data *data);
 void	*ft_memset(void *b, int c, unsigned int len);

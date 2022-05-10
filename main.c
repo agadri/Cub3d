@@ -6,7 +6,7 @@
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 13:24:53 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/10 17:15:40 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/10 19:57:54 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,22 +108,8 @@ int	get_map(t_data *data, char **av)//obtenir la map
 
 int	loop_raycast(t_data *data)
 {
-	//key_hook(data);
+	key_hook(data);
 	draw(data);
-	return (0);
-}
-
-
-int	key_hook(int keycode, t_data *data)
-{
-	if (keycode == 65307)
-	{
-		if (data->map3)
-			free_map3(data);
-		if (data->map)
-			free_map(data);
-		exit_opt(data, "Bye bye \n");
-	}
 	return (0);
 }
 
@@ -136,6 +122,8 @@ int	mouse_hook(t_data *data)
 	exit_opt(data, "Bye bye \n");
 	return (0);
 }
+
+
 
 int	main(int ac, char **av)
 {
@@ -150,15 +138,18 @@ int	main(int ac, char **av)
 		exit_opt(&data, "Error\n map\n");
 		return (0);// sinon pas bon tchao
 	}
+	printf("teub\b");
 	init_pos_dir(&data);
-	mlx_key_hook(data.win, key_hook, &data);
+	printf("6\n");
 	mlx_hook(data.win, 17, 1L << 17, mouse_hook, &data);
 	//mlx_hook(game.win, 17, 1L << 17, mouse_hook, &game);
 	mlx_loop_hook(data.mlx, loop_raycast, &data);//pour agir sur la window
-	//mlx_hook(data.win, 2, 1L << 0, key_press, &data);//quand t'appuie sur une touche
+	mlx_hook(data.win, 2, 1L << 0, key_press, &data);//quand t'appuie sur une touche
+	mlx_hook(data.win, 3, 1L << 1, key_release, &data);
+	printf("7\n");
 	//mlx_hook(data.win, 33, 131072, &ft_free, &data);
 	mlx_do_sync(data.mlx);
-	mlx_loop(data.mlx);//la boucle qui maintiens la window
+	mlx_loop(data.mlx);//la boucle qui maindtiens la window
 	free_map(&data);
 	return (1);
 }

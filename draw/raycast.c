@@ -1,4 +1,5 @@
 #include "draw.h"
+
 void	wall_dist(t_data *data)
 {
 	if (data->ray.side == WE || data->ray.side == EA)

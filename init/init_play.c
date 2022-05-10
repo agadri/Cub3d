@@ -6,7 +6,7 @@
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:39:39 by benmoham          #+#    #+#             */
-/*   Updated: 2022/05/10 17:45:36 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/10 19:46:51 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,18 @@ void	west_east(t_data *data, char dir)
 
 void	init_player(t_data *data, int h, int w, char dir)
 {
-	if (data->player.status == 0)
-		exit_opt(data, "Player already set\n");
+	(void)h;
+	(void) w;
+	printf("1\n");
 	if (dir == 'N')
 	{
+		printf("2\n");
 		set_dir(data, -1, 0);
 		set_plane(data, 0, 0.66);
 	}
 	else if (dir == 'S')
 	{
+		printf("3\n");
 		set_dir(data, 1, 0);
 		set_plane(data, 0, -0.66);
 	}
@@ -56,5 +59,5 @@ void	init_player(t_data *data, int h, int w, char dir)
 		west_east(data, dir);
 	data->player.pos.x = h + 0.5;
 	data->player.pos.y = w + 0.5;
-	data->player.status =0 ;
+	printf("4\n");
 }

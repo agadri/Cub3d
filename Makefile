@@ -13,6 +13,9 @@ SRCS = 	gnl/get_next_line_utils.c \
 		check/check_name.c \
 		check/check_all.c \
 		check/check_position.c\
+		move/move_all.c \
+		move/move_wasd.c \
+		move/rotate_move.c \
 		draw/draw2.c\
 		draw/raycast.c \
 		draw/display.c \
