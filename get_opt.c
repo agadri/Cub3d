@@ -3,39 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_opt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 19:18:40 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/11 16:23:28 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/11 16:58:42 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
-
-void	exit_opt(t_data *data, char *msg)
-{
-	if (msg == NULL)
-		(void)msg;
-	if (data->mlx != NULL)
-	{
-		if (data->win != NULL)
-		{
-			free_img(data);
-			mlx_destroy_window(data->mlx, data->win);
-		}
-		mlx_destroy_display(data->mlx);
-		free(data->mlx);
-	}
-	exit(1);
-}
-
-void	add_rgb(long *res, t_color *s_key)
-{
-	s_key->r = (int)res[0];
-	s_key->g = (int)res[1];
-	s_key->b = (int)res[2];
-	s_key->status = 1;
-}
 
 int	take_rgb(t_color *s_key, char *line, t_data *data)
 {
@@ -63,7 +38,7 @@ int	take_rgb(t_color *s_key, char *line, t_data *data)
 	return (1);
 }
 
-int	get_texture(t_data *data, char *path, t_img *img)// obtient les textures et les trier
+int	get_texture(t_data *data, char *path, t_img *img)
 {
 	int	i;
 
@@ -80,15 +55,23 @@ int	get_texture(t_data *data, char *path, t_img *img)// obtient les textures et 
 		}
 		i++;
 	}
-	img->img = mlx_xpm_file_to_image(data->mlx, path, &img->width, &img->height);
-	if (!img->img)// on init les image /textures
+	img->img = mlx_xpm_file_to_image(data->mlx, path, \
+	&img->width, &img->height);
+	if (!img->img)
 		exit_opt(data, "1error texture\n");
-	img->addr = mlx_get_data_addr(img->img, &img->bpp, &img->line, &img->endian);
-	if (!img->addr)//chop l'adress
+	img->addr = mlx_get_data_addr(img->img, &img->bpp, \
+	&img->line, &img->endian);
+	if (!img->addr)
 		exit_opt(data, "2error texture\n");
 	img->status = 1;
-	//data->total_arg++;
 	return (1);
+}
+
+void	return_get_opt(char *line, char **tmp, t_data *data)
+{
+	free(line);
+	free_tab(tmp);
+	exit_opt(data, "Already load");
 }
 
 int	get_opt(t_data *data, char *line, int res)
@@ -97,7 +80,6 @@ int	get_opt(t_data *data, char *line, int res)
 
 	tmp = NULL;
 	tmp = ft_split(line, ' ');
-
 	if (!tmp)
 		exit_opt(data, "Malloc failed");
 	if (!ft_strncmp(tmp[0], "NO", 3))
@@ -113,11 +95,7 @@ int	get_opt(t_data *data, char *line, int res)
 	else if (!ft_strncmp(tmp[0], "C", 2))
 		res = take_rgb(&data->ceiling, tmp[1], data);
 	if (res == 2)
-	{
-		free(line);
-		free_tab(tmp);
-		exit_opt(data, "Already load");
-	}
+		return_get_opt(line, tmp, data);
 	free_tab(tmp);
 	return (res);
 }

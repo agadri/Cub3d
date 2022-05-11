@@ -1,14 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/11 17:03:40 by adegadri          #+#    #+#             */
+/*   Updated: 2022/05/11 18:27:17 by adegadri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PARSE_H
 # define PARSE_H
 
 # include <stdio.h>
-#include <stdlib.h>
+# include <stdlib.h>
 # include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <errno.h>
-#include <math.h>
-#include <string.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <errno.h>
+# include <math.h>
+# include <string.h>
 
 # include "mlx/mlx.h"
 
@@ -27,105 +39,7 @@
 # define WALL3 "./xpm/stone_wall.xpm"
 # define WALL4 "./xpm/stone.xpm"
 
-
-typedef struct s_coord
-{
-	double		x;
-	double		y;
-}				t_coord;
-
-typedef struct s_color
-{
-	int			r;
-	int			g;
-	int			b;
-	int			status;
-}				t_color;
-
-typedef struct s_play
-{
-	t_coord		pos;
-	t_coord		dir;
-	int 		status;
-	t_coord		plane;
-	int			pos_x;
-	int			pos_y;
-	char		dir_pers;
-	int			dir_x_pers;
-	int			dire_y_pers;
-}				t_play;
-
-typedef struct s_rgb
-{
-	int			r;
-	int			g;
-	int			b;
-	int			status;
-}				t_rgb;
-
-typedef struct s_img
-{
-	void	*img;
-	char	*addr;
-	int		bpp;
-	int		height;
-	int		width;
-	int		endian;
-	int		line;
-	int		status;
-}				t_img;
-
-typedef struct s_ray
-{
-	t_coord		dir;
-	t_coord		map;
-	int			mapx;
-	int			mapy;
-	t_coord		delta_dist;
-	t_coord		side_dist;
-	t_coord		cam;
-	int	 		hit;
-	int			stepx;
-	int			stepy;
-	int			side;
-	double		wall_dist;
-	int			line_height;
-	int			wall_start;
-	int			wall_end;
-	double		wall_x;
-}				t_ray;
-
-typedef struct s_data
-{
-	void	*mlx;
-	void	*win;
-	void	*img;
-
-	char	*line;
-	int		fd;
-	char	**map;
-	char	**map3;
-	int		width;
-	int		lenght;
-	t_img	north;
-	t_img	south;
-	t_img	west;
-	t_img	east;
-	t_ray 	ray;
-	t_img 	tx;
-	t_color	floor;
-	t_color	ceiling;
-	t_play	player;
-	int		exit;
-	int		key_w;
-	int		key_s;
-	int		key_d;
-	int		key_a;
-	int		key_l;
-	int		key_r;
-	t_rgb	color;
-}	t_data;
-
+# include "struct.h"
 # include "gnl/get_next_line.h"
 # include "check/check.h"
 # include "init/init_all.h"
@@ -149,6 +63,12 @@ void	*ft_memset(void *b, int c, unsigned int len);
 int		get_map(t_data *data, char **av);
 char	*ft_strdup(char *src);
 long	ft_atol(char *str);
-
+void	exit_opt(t_data *data, char *msg);
+void	add_rgb(long *res, t_color *s_key);
+int		loop_raycast(t_data *data);
+int		mouse_hook(t_data *data);
+char	*ft_strjoinfree(char *s1, char *s2, int to_free);
+int		check_temp(char *s);
+int		ft_stronly(const char *s, const char *s2);
 
 #endif

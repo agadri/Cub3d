@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:25:28 by benmoham          #+#    #+#             */
-/*   Updated: 2022/05/10 17:30:26 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/11 16:39:27 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
-
 
 void	init_display(t_data *data)
 {

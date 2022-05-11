@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init_play.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:39:39 by benmoham          #+#    #+#             */
-/*   Updated: 2022/05/10 20:23:09 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/11 16:47:26 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init_all.h"
-
 
 void	init_rgb(t_data *data)
 {

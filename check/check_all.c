@@ -3,14 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   check_all.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 17:17:35 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/10 19:31:32 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/11 19:05:58 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "check.h"
+
+void	check_main(int ac, char **av, t_data *data)
+{
+	if (ac != 2)
+	{
+		printf("Error \nnumber of argument\n");
+		exit_opt(data, NULL);
+	}
+	if (ft_check_name_map(av[1]) == 0)
+	{
+		printf("Error \nbad name\n");
+		exit_opt(data, NULL);
+	}
+	if (!check_all(ac, av, data))
+		exit_opt(data, "Error\n map\n");
+}
 
 int	check_all(int ac, char **av, t_data *data)
 {
@@ -18,12 +34,11 @@ int	check_all(int ac, char **av, t_data *data)
 		return (0);
 	else if (!get_map(data, av))
 	{
-		printf("%s\n","Error \n when get map\n");
+		printf("%s\n", "Error \n when get map\n");
 		return (0);
 	}
 	if (data->width < 3 || data->lenght < 3)
 	{
-		//map trop petite free tt et close fd
 		printf("%s\n", "Error \n map to small\n");
 		return (0);
 	}

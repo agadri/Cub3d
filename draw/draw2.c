@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   draw2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 17:14:00 by benmoham          #+#    #+#             */
-/*   Updated: 2022/05/10 17:32:33 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/11 16:39:17 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "draw.h"
 
@@ -101,4 +100,4 @@ void	put_in_display(t_data *data, int x)
 		draw_rgb(data, &data->floor, y, x);
 		y++;
 	}
-}  
+}

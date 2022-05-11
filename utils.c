@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 17:54:14 by benmoham          #+#    #+#             */
-/*   Updated: 2022/05/10 20:28:04 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/11 18:38:54 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "parse.h"
 
-int ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
 	unsigned int	i;
 

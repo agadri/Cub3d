@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 21:17:34 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/09 17:54:41 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/11 16:53:54 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,7 @@ static void	ft_do_split(char **tab, int countword, char const *s, char c)
 			return ;
 		}
 		while (*s && !is_charset(*s, c))
-		{
 			tab[i][j++] = *s++;
-		}
 		tab[i][j] = '\0';
 		i++;
 	}

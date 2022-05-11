@@ -3,20 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   free_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 17:54:03 by benmoham          #+#    #+#             */
-/*   Updated: 2022/05/11 16:05:21 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/11 16:41:24 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "free.h"
 
 void	free_data(t_data *data)
 {
-	//if (data->line)
-	//	free(data->line);
 	if (data->fd)
 		close (data->fd);
 	if (data->map)
@@ -41,7 +38,6 @@ void	free_img(t_data *data)
 		mlx_destroy_image(data->mlx, data->west.img);
 	if (data->east.img != NULL)
 		mlx_destroy_image(data->mlx, data->east.img);
-	//mlx_destroy_display()
 	if (data->tx.img != NULL)
 		mlx_destroy_image(data->mlx, data->tx.img);
 }

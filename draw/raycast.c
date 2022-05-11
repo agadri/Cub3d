@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   raycast.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/11 16:40:07 by adegadri          #+#    #+#             */
+/*   Updated: 2022/05/11 16:40:29 by adegadri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "draw.h"
 
 void	wall_dist(t_data *data)
@@ -20,11 +32,10 @@ void	wall_dist(t_data *data)
 	data->ray.wall_x -= floor(data->ray.wall_x);
 }
 
-void	loop_hit(t_data *data)//perform DDA
+void	loop_hit(t_data *data)
 {
 	while (data->ray.hit == 0)
 	{
-		//jump to next map square, either in x-direction, or in y-direction
 		if (data->ray.side_dist.x < data->ray.side_dist.y)
 		{
 			data->ray.side_dist.x += data->ray.delta_dist.x;
@@ -49,7 +60,7 @@ void	loop_hit(t_data *data)//perform DDA
 	}
 }
 
-void	calcul_raydis(t_data *data)//calculate step and initial sideDist
+void	calcul_raydis(t_data *data)
 {
 	if (data->ray.dir.x < 0)
 	{
@@ -77,9 +88,9 @@ void	calcul_raydis(t_data *data)//calculate step and initial sideDist
 	}
 }
 
-int	draw(t_data *data)//dessins
+int	draw(t_data *data)
 {
-    int x;
+	int	x;
 
 	x = 0;
 	while (x < WIN_WIDTH)
@@ -102,5 +113,5 @@ int	draw(t_data *data)//dessins
 		x++;
 	}
 	mlx_put_image_to_window(data->mlx, data->win, data->tx.img, 0, 0);
-    return (1);
+	return (1);
 }
