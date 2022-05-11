@@ -6,7 +6,7 @@
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 19:18:40 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/10 20:26:12 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/11 16:23:28 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	exit_opt(t_data *data, char *msg)
 {
 	if (msg == NULL)
 		(void)msg;
-	//printf("Error\n%s\n", msg);
 	if (data->mlx != NULL)
 	{
 		if (data->win != NULL)
@@ -60,8 +59,7 @@ int	take_rgb(t_color *s_key, char *line, t_data *data)
 		}
 	}
 	add_rgb(res, s_key);
-	//ft_free_tab(tmp);
-	//data->total_arg++;
+	free_tab(tmp);
 	return (1);
 }
 

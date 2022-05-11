@@ -6,7 +6,7 @@
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 17:54:03 by benmoham          #+#    #+#             */
-/*   Updated: 2022/05/10 16:50:04 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/11 16:05:21 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ void	free_img(t_data *data)
 	if (data->east.img != NULL)
 		mlx_destroy_image(data->mlx, data->east.img);
 	//mlx_destroy_display()
-	//if (data->maintx.img != NULL)
-	//	mlx_destroy_image(data->mlx, data->maintx.img);
+	if (data->tx.img != NULL)
+		mlx_destroy_image(data->mlx, data->tx.img);
 }

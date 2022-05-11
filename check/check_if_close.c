@@ -6,13 +6,13 @@
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 15:16:24 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/10 17:36:16 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/11 16:24:48 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "check.h"
 
-int	check_line_close(t_data *data, int line)// je vais check la premiere et derniere ligne 
+int	check_line_close(t_data *data, int line)
 {
 	int	i;
 
