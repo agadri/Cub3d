@@ -6,15 +6,24 @@ NAME = cub3D
 SRCS = 	gnl/get_next_line_utils.c \
 		gnl/get_next_line.c \
 		init/init_mlx.c \
+		init/init_play.c \
 		check/check_if_close.c \
 		check/check_map.c \
 		check/check_utils.c \
 		check/check_name.c \
 		check/check_all.c \
-		draw/draw.c \
+		check/check_position.c\
+		move/move_all.c \
+		move/move_wasd.c \
+		move/rotate_move.c \
+		draw/draw2.c\
+		draw/raycast.c \
+		draw/display.c \
 		catch_size.c \
 		ft_split.c \
 		utils.c \
+		utils2.c \
+		hook.c \
 		get_opt.c \
 		exit/free_map.c \
 		exit/free_data.c \

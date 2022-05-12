@@ -3,16 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 12:50:37 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/09 17:19:42 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/12 14:59:38 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "check.h"
 
-int	check_letter(t_data *data)// check si il n'y que les bon char
+int	check_letter_error(t_data *data)
+{
+	free_map(data);
+	exit_opt(data, "Error \n use of wrong character\n");
+	return (0);
+}
+
+int	check_letter(t_data *data)
 {
 	int	i;
 	int	j;
@@ -25,13 +32,11 @@ int	check_letter(t_data *data)// check si il n'y que les bon char
 		i = 0;
 		while (data->map[j][i])
 		{
-			if (data->map[j][i] && (data->map[j][i] != '0' && data->map[j][i] != '1' && data->map[j][i] != 'N' && \
-			data->map[j][i] != 'S' && data->map[j][i] != 'E' && data->map[j][i] != 'W' && data->map[j][i] != ' '))
-			{
-				// printf("%s\n", "Error \n use of wrong character");
-				exit_opt(data, "Error\n wrong char\n");
-				return (0);
-			}
+			if (data->map[j][i] && (data->map[j][i] != '0' && \
+			data->map[j][i] != '1' && data->map[j][i] != 'N' && \
+			data->map[j][i] != 'S' && data->map[j][i] != 'E' && \
+			data->map[j][i] != 'W' && data->map[j][i] != ' '))
+				return (check_letter_error(data));
 			i++;
 		}
 		j++;
@@ -81,7 +86,4 @@ int	check_duplicate_position(t_data *data)
 		j++;
 	}
 	return (if_status0(status));
-	//exit_opt(data, "zboub2\n");
-	return (1);
 }
-

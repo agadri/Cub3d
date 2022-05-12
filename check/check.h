@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/11 16:34:13 by adegadri          #+#    #+#             */
+/*   Updated: 2022/05/11 19:05:38 by adegadri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CHECK_H
 # define CHECK_H
 
@@ -5,8 +17,6 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include "../parse.h"
-
-
 
 void	change_space_to_3(t_data *data);
 int		check_line_close(t_data *data, int line);
@@ -18,5 +28,7 @@ int		check_fd(char *name_map);
 int		check_all(int ac, char **av, t_data *data);
 int		check_letter(t_data *data);
 int		check_duplicate_position(t_data *data);
+void	init_pos_dir(t_data *data);
+void	check_main(int ac, char **av, t_data *data);
 
 #endif

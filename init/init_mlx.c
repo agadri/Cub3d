@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_mlx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 15:20:58 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/09 17:06:58 by benmoham         ###   ########.fr       */
+/*   Updated: 2022/05/12 15:00:04 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,22 @@
 
 void	init_win(t_data *data)
 {
-	data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, "cub3D");
+	data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, "CUB3D");
 	if (!data->win)
-		exit_opt(data, "Loading window failed");
+		exit_opt(data, "Error\nwindow failed");
+	init_display(data);
+}
+
+void	init_color(t_data *data)
+{
+	data->ceiling.r = 0;
+	data->ceiling.g = 0;
+	data->ceiling.b = 0;
+	data->ceiling.status = 0;
+	data->floor.r = 0;
+	data->floor.g = 0;
+	data->floor.b = 0;
+	data->floor.status = 0;
 }
 
 void	init_data(t_data *data)
@@ -27,6 +40,13 @@ void	init_data(t_data *data)
 	data->map = NULL;
 	data->map3 = NULL;
 	data->exit = 0;
+	data->key_w = 0;
+	data->key_d = 0;
+	data->key_s = 0;
+	data->key_a = 0;
+	data->key_r = 0;
+	data->key_l = 0;
+	init_color(data);
 }
 
 void	init_img(t_data *data)

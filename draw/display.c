@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.h                                             :+:      :+:    :+:   */
+/*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adegadri <adegadri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/11 16:37:55 by adegadri          #+#    #+#             */
-/*   Updated: 2022/05/11 16:37:57 by adegadri         ###   ########.fr       */
+/*   Created: 2022/05/10 17:25:28 by benmoham          #+#    #+#             */
+/*   Updated: 2022/05/12 14:59:57 by adegadri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DRAW_H
-# define DRAW_H
+#include "draw.h"
 
-# include "../parse.h"
-
-void	init_display(t_data *data);
-int		draw(t_data *data);
-void	put_in_display(t_data *data, int x);
-#endif
+void	init_display(t_data *data)
+{
+	data->tx.img = mlx_new_image(data->mlx, WIN_WIDTH, WIN_HEIGHT);
+	if (!data->tx.img)
+		exit_opt(data, "Error\nInit display\n");
+	data->tx.addr = mlx_get_data_addr(data->tx.img, &data->tx.bpp,
+			&data->tx.line, &data->tx.endian);
+	if (!data->tx.addr)
+		exit_opt(data, "Error\nInit display\n");
+}
