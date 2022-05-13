@@ -1,42 +1,38 @@
-
-# //RGB
-# //line vide a gerer
 NAME = cub3D
 
-SRCS = 	gnl/get_next_line_utils.c \
-		gnl/get_next_line.c \
-		init/init_mlx.c \
-		init/init_play.c \
-		check/check_if_close.c \
-		check/check_map.c \
-		check/check_utils.c \
-		check/check_name.c \
-		check/check_all.c \
-		check/check_position.c\
-		move/move_all.c \
-		move/move_wasd.c \
-		move/rotate_move.c \
-		draw/draw2.c\
-		draw/raycast.c \
-		draw/display.c \
-		catch_size.c \
-		ft_split.c \
-		utils.c \
-		utils2.c \
-		hook.c \
-		get_opt.c \
-		exit/free_map.c \
-		exit/free_data.c \
-		main.c
+SRCS = 	SRCS/GNL/get_next_line_utils.c \
+		SRCS/GNL/get_next_line.c \
+		SRCS/INIT/hook.c \
+		SRCS/INIT/init_mlx.c \
+		SRCS/INIT/init_play.c \
+		SRCS/CHECK/check_if_close.c \
+		SRCS/CHECK/check_map.c \
+		SRCS/CHECK/check_name.c \
+		SRCS/CHECK/check_all.c \
+		SRCS/CHECK/check_position.c\
+		SRCS/MOVE/move_all.c \
+		SRCS/MOVE/move_wasd.c \
+		SRCS/MOVE/rotate_move.c \
+		SRCS/GET_OPTION/get_opt.c \
+		SRCS/GET_OPTION/get_texture.c \
+		SRCS/DRAW/draw2.c \
+		SRCS/DRAW/raycast.c \
+		SRCS/DRAW/display.c \
+		SRCS/UTILS/catch_size.c \
+		SRCS/UTILS/ft_split.c \
+		SRCS/UTILS/utils.c \
+		SRCS/UTILS/utils2.c \
+		SRCS/EXIT/free_map.c \
+		SRCS/EXIT/free_data.c \
+		SRCS/main.c
 				
 OBJS 		= 	${SRCS:.c=.o}
 
 PATH_MLX	=	./mlx
 CC 			= 	gcc
 
-CFLAGS		= 	-Wall -Wextra -Werror -g3 #-fsanitize=address
+CFLAGS		= 	-Wall -Wextra -Werror #-g3 #-fsanitize=address
 RM			= 	rm -f
-NAME		= 	parse
 FLAGS		=	-ldl -Imlx -Lmlx -lmlx -lm -lXext -lX11
 
 all: 			${NAME}
